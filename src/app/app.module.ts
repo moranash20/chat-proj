@@ -10,9 +10,14 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { HeaderComponent } from './components/header/header.component';
+import { ChatContainerComponent } from './components/chat-container/chat-container.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { RoomListComponent } from './components/room-list/room-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, ChatContainerComponent, ChatComponent, RoomListComponent, HomeComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
