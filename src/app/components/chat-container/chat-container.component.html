@@ -6,6 +6,13 @@
     <app-chat [messages]="messages"></app-chat>
   </div>
   <div class="chat-room__add-room">
-    <button type="button" mat-raised-button color="primary">Add Room</button>
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      (click)="openAddRoomModal()"
+    >
+      Add Room
+    </button>
   </div>
 </div>
