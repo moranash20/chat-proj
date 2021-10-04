@@ -11,7 +11,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
-    path: 'chat/roomId',
+    path: 'chat/:roomId',
     component: ChatContainerComponent,
     canActivate: [AuthGuardService],
   },
