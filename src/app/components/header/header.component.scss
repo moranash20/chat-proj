@@ -2,7 +2,13 @@
   &__spacer {
     flex: 1 1 auto;
   }
-  &__icon {
-    background: rgb(255 255 255 / 40%);
+  // &__icon {
+  //   background: rgb(255 255 255 / 40%);
+  // }
+
+  &__link {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
   }
 }

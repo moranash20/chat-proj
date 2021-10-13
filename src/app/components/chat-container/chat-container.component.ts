@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {
   ActivatedRoute,
+  ActivationEnd,
   NavigationEnd,
   Router,
   RouterEvent,
@@ -59,6 +60,15 @@ export class ChatContainerComponent implements OnInit, OnDestroy {
         .pipe(filter((data) => !!data))
         .subscribe((user) => {
           this.userId = user.uid;
+        })
+    );
+    this.subscription.add(
+      this.router.events
+        .pipe(filter((routerEvent) => routerEvent instanceof ActivationEnd))
+        .subscribe((data) => {
+          const routeEvent = data as ActivationEnd;
+          this.roomId = routeEvent.snapshot.paramMap.get('roomId') || '';
+          console.log(this.roomId);
         })
     );
   }
