@@ -2,13 +2,13 @@
   <div class="chat-container__room-list" *ngIf="rooms$ | async as rooms">
     <app-room-list [rooms]="rooms"></app-room-list>
   </div>
-  <div class="chat-room__chat" *ngIf="messages$ | async as messages">
+  <div class="chat-container__chat" *ngIf="messages$ | async as messages">
     <app-chat
       [messages]="messages"
       (onSendMessage)="onSendMessage($event)"
     ></app-chat>
   </div>
-  <div class="chat-room__add-room">
+  <div class="chat-container__add-room">
     <button
       type="button"
       mat-raised-button
