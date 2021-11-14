@@ -68,7 +68,6 @@ export class ChatContainerComponent implements OnInit, OnDestroy {
         .subscribe((data) => {
           const routeEvent = data as ActivationEnd;
           this.roomId = routeEvent.snapshot.paramMap.get('roomId') || '';
-          console.log(this.roomId);
         })
     );
   }
@@ -83,7 +82,6 @@ export class ChatContainerComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed', result);
       this.onAddRoom(result, this.userId);
     });
   }

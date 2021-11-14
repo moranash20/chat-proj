@@ -17,7 +17,7 @@ export class AuthService {
     false
   );
   private userDetails$: Subject<User> = new Subject<User>();
-
+  private userId: string = '';
   constructor(
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
@@ -34,6 +34,7 @@ export class AuthService {
         const userString: string = JSON.stringify(user);
         localStorage.setItem('user', userString);
         this.isLoggedIn$.next(true);
+        this.userId = user.uid;
       } else {
         localStorage.removeItem('user');
         this.isLoggedIn$.next(false);
@@ -67,6 +68,10 @@ export class AuthService {
       this.setUserData(res.user as User);
       this.router.navigate(['chat']);
     });
+  }
+
+  public getUseId(): string {
+    return this.userId;
   }
 
   private setUserData(user?: User): Promise<void> | void {

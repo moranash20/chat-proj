@@ -8,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { IMessage } from 'src/app/models';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -27,14 +28,18 @@ export class ChatComponent implements OnInit {
 
   private _messages: Array<IMessage> = [];
 
+  public userId: string;
+
   get messages() {
     return this._messages;
   }
 
-  constructor() {}
+  constructor(private authService: AuthService) {
+    this.userId = authService.getUseId();
+  }
 
   ngOnInit(): void {
-    console.log(this.virtualScroll);
+    console.log(this.userId);
   }
 
   public sendMessage(message: string, input: HTMLInputElement): void {
